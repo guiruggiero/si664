@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'catalog.apps.CatalogConfig',
     'django_extensions',
-    'unesco.apps.UnescoConfig',
+    # 'unesco.apps.UnescoConfig',
 ]
 
 MIDDLEWARE = [
