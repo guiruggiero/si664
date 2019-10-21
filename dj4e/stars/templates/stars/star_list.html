@@ -1,0 +1,30 @@
+{% extends "base_bootstrap.html" %}
+
+{% block content %}
+  <h1>Star list</h1>
+  {% if star_list %}
+  <ul>
+    {% for star in star_list %}
+      <li>
+          {{ star.nickname }} ({{ star.type }})
+          (<a href="{% url 'stars:star_update' star.id %}">Update</a> |
+          <a href="{% url 'stars:star_delete' star.id %}">Delete</a>) <br/>
+          {{ star.mass }} ({{ star.distance }} light years)
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no stars in the library.</p>
+  {% endif %}
+  <p>
+    {% if type_count > 0 %}
+      <a href="{% url 'stars:star_create' %}">Add a star</a>
+    {% else %}
+      Please add a type before you add a star.
+    {% endif %}
+  </p>
+  <p>
+  <a href="{% url 'stars:type_list' %}">View types</a> ({{ type_count }}) |
+    <a href="{% url 'stars:type_create' %}">Add a type</a>
+  </p>
+{% endblock %}
