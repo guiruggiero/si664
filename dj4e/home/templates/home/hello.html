@@ -1,25 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+    <head>
 
-<meta name="wa4e" content="b2f627fff19fda463cb386442eac2b3d">
-<title>Hello World</title>
+        <meta name="wa4e" content="b2f627fff19fda463cb386442eac2b3d">
+        <title>Hello World</title>
 
-</head>
+    </head>
 
-<body>
+    <body>
 
-<h1>Hello, M world!</h1>
-Developed by Gui Ruggiero
-<br>
+        <h1>Hello, M world.</h1>
+        Developed by Gui Ruggiero - Go Blue!
+        <br>
 
-<ul>
-<li><a href="/autos">Autos CRUD</a>
-<li><a href="/cats">Cats CRUD</a>
-<li><a href="/stars">Stars CRUD</a>
-<ul>
+        <ul>
+            <li><a href="/autos">Autos CRUD</a>
+            <li><a href="/cats">Cats CRUD</a>
+            <li><a href="/stars">Stars CRUD</a>
+        </ul>
 
-</body>
+        {% if user.is_authenticated %}
+            Logged in as {{ user.username }} ({{ user.email }})
+            <ul>
+                    {% if user.is_staff %}
+                        <li><a href="/admin">Admin panel</a>
+                    {% endif %}
+                <li><a href="/accounts/logout?next=/">Logout</a>
+            </ul>
+        {% else %}
+            <a href="/accounts/login?next=/">Login</a>
+        {% endif %}
+
+    </body>
 
 </html>
