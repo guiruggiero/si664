@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'autos.apps.AutosConfig',
     'cats.apps.CatsConfig',
     'stars.apps.StarsConfig',
+    'boats.apps.BoatsConfig',
 ]
 
 MIDDLEWARE = [
