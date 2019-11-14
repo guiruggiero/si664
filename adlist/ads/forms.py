@@ -1,5 +1,5 @@
 from django import forms
-from ads.models import Ad # flag
+from ads.models import Ad
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from ads.humanize import naturalsize
 from django.core.exceptions import ValidationError
@@ -51,4 +51,5 @@ class CreateForm(forms.ModelForm):
 
 # strip means to remove whitespace from the beginning and the end before storing the column
 class CommentForm(forms.Form):
+# class CommentForm(forms.ModelForm):
     comment = forms.CharField(required=True, max_length=500, min_length=3, strip=True)

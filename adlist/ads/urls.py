@@ -1,5 +1,6 @@
 from django.urls import path, reverse_lazy
 from . import views
+from django.views.generic import TemplateView
 
 app_name='ads'
 urlpatterns = [

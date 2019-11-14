@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <p>
-  <form action="" method="post" id="upload_form" enctype="multipart/form-data">
+  <form action="" method="post" id="upload_form" enctype="multipart/form-data"> <!-- flag -->
     {% csrf_token %}
     {{ form|crispy }}
     <input type="submit" value="Submit">

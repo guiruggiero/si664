@@ -13,10 +13,13 @@ class Ad(models.Model) :
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    # Picture
     picture = models.BinaryField(null=True, editable=True)
     content_type = models.CharField(max_length=256, null=True, help_text='The MIMEType of the file')
-    comments = models.ManyToManyField(settings.AUTH_USER_MODEL,
-        through='Comment', related_name='comments_owned')
+
+    # Comments
+    comments = models.ManyToManyField(settings.AUTH_USER_MODEL, through='Comment', related_name='comments_owned')
 
     # Shows up in the admin list
     def __str__(self):
@@ -29,6 +32,7 @@ class Comment(models.Model) :
 
     ad = models.ForeignKey(Ad, on_delete=models.CASCADE)
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
