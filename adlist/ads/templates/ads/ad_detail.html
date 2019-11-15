@@ -32,11 +32,11 @@
 </p>
 {% endif %}
 
-{% for comment in ad.comments %}
+{% for comment in comments %}
 <p> {{ comment.text }}
     ({{ comment.updated_at|naturaltime }})
     {% if user == comment.owner %}
-    <a href="{% url 'ads:ad_comment_delete' ad.id %}"><i class="fa fa-trash"></i></a>
+    <a href="{% url 'ads:ad_comment_delete' comment.id %}"><i class="fa fa-trash"></i></a>
     {% endif %}
 </p>
 {% endfor %}

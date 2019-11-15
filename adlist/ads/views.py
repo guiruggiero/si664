@@ -16,12 +16,6 @@ class AdListView(OwnerListView):
 class AdDetailView(OwnerDetailView):
     model = Ad
     template_name = "ads/ad_detail.html"
-    # def get(self, request, pk) :
-    #     forum = Forum.objects.get(id=pk)
-    #     comments = Comment.objects.filter(forum=forum).order_by('-updated_at')
-    #     comment_form = CommentForm()
-    #     context = { 'forum' : forum, 'comments': comments, 'comment_form': comment_form }
-    #     return render(request, self.template_name, context)
     def get(self, request, pk) :
         ad = Ad.objects.get(id=pk)
         comments = Comment.objects.filter(ad=ad).order_by('-updated_at') # flag
@@ -92,7 +86,7 @@ def stream_file(request, pk): # flag
 class CommentCreateView(LoginRequiredMixin, View):
     def post(self, request, pk) :
         f = get_object_or_404(Ad, id=pk)
-        # comment_form = CommentForm(request.POST) # flag
+        comment_form = CommentForm(request.POST) # flag
 
         comment = Comment(text=request.POST['comment'], owner=request.user, ad=f)
         comment.save()
