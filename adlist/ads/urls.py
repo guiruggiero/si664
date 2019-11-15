@@ -17,7 +17,7 @@ urlpatterns = [
     path('ad/<int:pk>/comment',
         views.CommentCreateView.as_view(), name='ad_comment_create'),
     path('comment/<int:pk>/delete',
-        views.CommentDeleteView.as_view(success_url=reverse_lazy('ads')), name='ad_comment_delete'),
+        views.CommentDeleteView.as_view(success_url=reverse_lazy('ads:ads')), name='ad_comment_delete'),
 ]
 
 # We use reverse_lazy in urls.py to delay looking up the view until all the paths are defined
